@@ -1,26 +1,25 @@
 import React from "react";
-import logo from "./logo.svg";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+} from "react-router-dom";
+import Homepage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
+import DiscoverMoviesPage from "./pages/DiscoverMoviesPage";
+import NavBar from "./components/NavBar";
 import "./App.css";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Amsterdam
-        </a>
-      </header>
+      <NavBar />
+      <Switch>
+        <Route path="/discover" component={DiscoverMoviesPage} />
+        <Route path="/about" component={AboutPage} />
+        <Route path="/" component={Homepage} />
+      </Switch>
     </div>
   );
 }
-
-export default App;
